@@ -13,3 +13,53 @@
 //-                 .card 
 //-                     h2.card__name #{contact.properties.firstname}  #{contact.properties.lastname}
 //-                     p.card__email #{contact.properties.email}
+// updates.pug
+doctype html
+html
+    head
+        title Create New CRM Record
+    body
+        h1 Create New CRM Record
+        form(action='/update-cobj' method='post')
+            label(for='dog') dog:
+            input(type='text', name='dog')
+            br
+            label(for='name') name:
+            input(type='name', name='name')
+            br
+            label(for='owner') owner:
+            input(type='owner', name='owner')
+            br
+            input(type='submit', value='Submit')
+
+
+
+            // updates.pug
+doctype html
+html
+    head
+        title= pageTitle
+    body
+        h1 Update Custom Object Form
+        a(href='/') Return to the homepage
+
+// homepage.pug
+doctype html
+html
+    head
+        title Homepage | Integrating With HubSpot I Practicum
+    body
+        h1 CRM Record Data
+        table
+            thead
+                tr
+                    th dog
+                    th name
+                    // Add more th elements for additional properties
+            tbody
+                each record in crmRecords
+                    tr
+                        td= record.dog
+                        td= record.name
+                        // Add more td elements for additional properties
+        a(href='/update-cobj') Add to this table
